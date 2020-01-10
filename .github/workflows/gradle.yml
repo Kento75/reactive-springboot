@@ -14,4 +14,4 @@ jobs:
       with:
         java-version: 1.11
     - name: Build with Gradle
-      run: /learn-reactivespring./gradlew build
+      run: ./learn-reactivespring/./gradlew build
