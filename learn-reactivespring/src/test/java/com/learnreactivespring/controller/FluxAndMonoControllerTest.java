@@ -30,6 +30,9 @@ class FluxAndMonoControllerTest {
   @BeforeEach
   public void setUp() {}
 
+
+  /* flux test cases */
+
   @Test
   @DisplayName("/flux - StepVerifier使うパターン")
   public void flux_approach1() {
@@ -116,4 +119,21 @@ class FluxAndMonoControllerTest {
         .verify();
   }
 
+  /* mono test cases */
+
+  @Test
+  @DisplayName("/mono - シンプルテスト")
+  public void monoTest() {
+
+    Integer expectedValue = 1;
+
+    webTestClient.get().uri("/mono")
+        .accept(MediaType.APPLICATION_JSON)
+        .exchange()
+        .expectStatus().isOk()
+        .expectBody(Integer.class)
+        .consumeWith((response) -> {
+          assertEquals(expectedValue, response.getResponseBody());
+        });
+  }
 }
