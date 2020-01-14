@@ -1,6 +1,12 @@
 spring:
   profiles:
     active: dev
+#logging
+#logging:
+#  level: error
+#    org:
+#      springframework:
+#        data: debug
 ---
 spring:
   profiles: dev
