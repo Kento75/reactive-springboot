@@ -7,16 +7,15 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
 import java.util.Arrays;
 import java.util.List;
 
 @DataMongoTest
-@SpringBootTest
 @ExtendWith(SpringExtension.class)
 class ItemReactiveRepositoryTest {
 
@@ -56,9 +55,55 @@ class ItemReactiveRepositoryTest {
   @DisplayName("1検索 - itemId")
   public void getItemById() {
 
-    StepVerifier.create(itemReactiveRepository.findById("ABC"))
+    StepVerifier.create(itemReactiveRepository.findById("ABC").log("getItemById : "))
         .expectSubscription()
         .expectNextMatches((item -> item.getDescription().equals("Bose Headphones")))
+        .verifyComplete();
+  }
+
+  @Test
+  @DisplayName("詳細で検索")
+  public void findItemByDescription() {
+
+    StepVerifier.create(itemReactiveRepository.findByDescription("Bose Headphones").log("findItemByDescription : "))
+        .expectSubscription()
+        .expectNextCount(1)
+        .verifyComplete();
+  }
+
+  @Test
+  @DisplayName("アイテム作成")
+  public void saveItem() {
+
+    // given
+    Item item = new Item("DEF", "Google Home Mini", 30.00);
+
+    Mono<Item> saveItem = itemReactiveRepository.save(item);
+
+    StepVerifier.create(saveItem.log("saveItem : "))
+        .expectSubscription()
+        .expectNextMatches(item1 -> (item.getId() != null && item1.getDescription().equals("Google Home Mini")))
+        .verifyComplete();
+
+  }
+
+  @Test
+  @DisplayName("アイテム更新")
+  public void updateItem() {
+
+    // given
+    double newPrice = 555.5;
+
+    Flux<Item> updatedItem = itemReactiveRepository.findByDescription("LG TV").map(item -> {
+      item.setPrice(newPrice);  // 値差し替え
+      return item;
+    }).flatMap(item -> {
+      return itemReactiveRepository.save(item); // 更新
+    });
+
+    StepVerifier.create(updatedItem.log("updateItem : "))
+        .expectSubscription()
+        .expectNextMatches(item -> item.getPrice() == 555.5)
         .verifyComplete();
   }
 }
