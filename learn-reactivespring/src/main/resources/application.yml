@@ -31,3 +31,6 @@ spring:
       host: localhost2
       port: 27017
       database: prod
+---
+spring:
+  profiles: test
