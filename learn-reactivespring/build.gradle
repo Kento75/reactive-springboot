@@ -31,6 +31,8 @@ dependencies {
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
+    // RDBならh2をテスト用DBに設定できる MongoDBなので不可
+    // testCompile group: 'com.h2database', name: 'h2', version: '1.4.200'
     testImplementation 'de.flapdoodle.embed:de.flapdoodle.embed.mongo'
     testImplementation 'io.projectreactor:reactor-test'
 }

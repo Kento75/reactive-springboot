@@ -1,0 +1,11 @@
+# H2 Databaseで擬似的なMySQLを再現できる設定(MongoDBはなかった)
+#spring:
+#  datasource:
+#    driverClassName: org.h2.Driver
+#    url: jdbc:h2:mem:;DB_CLOSE_ON_EXIT=TRUE;MODE=MySQL
+#    username: sa
+#    password:
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: none
