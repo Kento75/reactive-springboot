@@ -101,4 +101,16 @@ class ItemsHandlerTest {
         .expectStatus()
         .isNotFound();
   }
+
+  @Test
+  @DisplayName("削除 - func route")
+  public void deleteItem() {
+
+    webTestClient
+        .delete()
+        .uri(ITEM_FUNCTIONAL_END_POINT_V1.concat("/{id}"), "ABC")
+        .exchange()
+        .expectStatus()
+        .isOk();
+  }
 }
