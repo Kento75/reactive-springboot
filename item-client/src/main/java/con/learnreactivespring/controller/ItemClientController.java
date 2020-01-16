@@ -2,9 +2,11 @@ package con.learnreactivespring.controller;
 
 import con.learnreactivespring.domain.Item;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @RestController
 public class ItemClientController {
@@ -28,8 +30,30 @@ public class ItemClientController {
     return webClient
         .get()
         .uri("/v1/items")
-        .exchange() // ステータスコード、body情報
+        .exchange() // ステータスコード、ヘッダー、body情報
         .flatMapMany(clientResponse -> clientResponse.bodyToFlux(Item.class))
         .log("Items in Client Project exchange : ");
+  }
+
+  @GetMapping("/client/retrieve/singleItem/{id}")
+  public Mono<Item> getOneItemsUsingRetrieve(@PathVariable("id") String itemId) {
+
+    return webClient
+        .get()
+        .uri("/v1/items/{id}", itemId)
+        .retrieve() // body情報のみ
+        .bodyToMono(Item.class)
+        .log("Items in Client Project retrieve single item : ");
+  }
+
+  @GetMapping("/client/exchange/singleItem/{id}")
+  public Mono<Item> getOneItemsUsingExchange(@PathVariable("id") String itemId) {
+
+    return webClient
+        .get()
+        .uri("/v1/items/{id}", itemId)
+        .exchange() // body情報 + Statusコード + ヘッダー
+        .flatMap(clientResponse -> clientResponse.bodyToMono(Item.class))
+        .log("Items in Client Project exchange single item : ");
   }
 }
