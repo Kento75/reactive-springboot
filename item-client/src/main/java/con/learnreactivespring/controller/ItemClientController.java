@@ -1,9 +1,8 @@
 package con.learnreactivespring.controller;
 
 import con.learnreactivespring.domain.Item;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -55,5 +54,33 @@ public class ItemClientController {
         .exchange() // body情報 + Statusコード + ヘッダー
         .flatMap(clientResponse -> clientResponse.bodyToMono(Item.class))
         .log("Items in Client Project exchange single item : ");
+  }
+
+  @PostMapping("/client/createItem")
+  public Mono<Item> createItem(@RequestBody Item item) {
+
+    return webClient
+        .post()
+        .uri("/v1/items")
+        .accept(MediaType.APPLICATION_JSON)
+        .contentType(MediaType.APPLICATION_JSON)
+        .body(Mono.just(item), Item.class)
+        .retrieve()
+        .bodyToMono(Item.class)
+        .log("Create item is : ");
+  }
+
+  @PutMapping("/client/updateItem/{id}")
+  public Mono<Item> updateItem(@PathVariable("id") String itemId, @RequestBody Item item) {
+
+    return webClient
+        .put()
+        .uri("/v1/items/{id}", itemId)
+        .accept(MediaType.APPLICATION_JSON)
+        .contentType(MediaType.APPLICATION_JSON)
+        .body(Mono.just(item), Item.class)
+        .retrieve()
+        .bodyToMono(Item.class)
+        .log("Update Item is : ");
   }
 }
