@@ -15,11 +15,13 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Flux;
+import reactor.test.StepVerifier;
 
 import java.util.Arrays;
 import java.util.List;
 
 import static com.learnreactivespring.constants.ItemConstants.ITEM_END_POINT_V1;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
@@ -56,7 +58,7 @@ class ItemControllerTest {
 
   @Test
   @DisplayName("全件取得")
-  public void getAllItems() {
+  public void getAllItems_approach1() {
     webTestClient
         .get()
         .uri(ITEM_END_POINT_V1)
@@ -67,5 +69,46 @@ class ItemControllerTest {
         .contentType(MediaType.APPLICATION_JSON)
         .expectBodyList(Item.class)
         .hasSize(4);
+  }
+
+  @Test
+  @DisplayName("全件取得 その２")
+  public void getAllItems_approach2() {
+    Flux<Item> itemFlux =
+        webTestClient
+            .get()
+            .uri(ITEM_END_POINT_V1)
+            .exchange()
+            .expectStatus()
+            .isOk()
+            .expectHeader()
+            .contentType(MediaType.APPLICATION_JSON)
+            .returnResult(Item.class)
+            .getResponseBody();
+
+    StepVerifier.create(itemFlux.log("value from network : ")).expectNextCount(4).verifyComplete();
+  }
+
+  @Test
+  @DisplayName("全件取得 - 取得したデータのIDがnullではない")
+  public void getAllItems_id() {
+    webTestClient
+        .get()
+        .uri(ITEM_END_POINT_V1)
+        .exchange()
+        .expectStatus()
+        .isOk()
+        .expectHeader()
+        .contentType(MediaType.APPLICATION_JSON)
+        .expectBodyList(Item.class)
+        .hasSize(4)
+        .consumeWith(
+            (response) -> {
+              List<Item> items = response.getResponseBody();
+              items.forEach(
+                  item -> {
+                    assertTrue(item.getId() != null);
+                  });
+            });
   }
 }
