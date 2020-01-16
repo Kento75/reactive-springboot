@@ -70,4 +70,35 @@ class ItemsHandlerTest {
         .expectBodyList(Item.class)
         .hasSize(4);
   }
+
+  @Test
+  @DisplayName("検索 - func route - ID")
+  public void getOneItem() {
+
+    webTestClient
+        .get()
+        .uri(ITEM_FUNCTIONAL_END_POINT_V1.concat("/{id}"), "ABC")
+        .exchange()
+        .expectStatus()
+        .isOk()
+        .expectBody()
+        .jsonPath("$.id")
+        .isEqualTo("ABC")
+        .jsonPath("$.price")
+        .isEqualTo(19.99)
+        .jsonPath("$.description")
+        .isEqualTo("Beats HeadPhones");
+  }
+
+  @Test
+  @DisplayName("検索 - func route - ID Not Found")
+  public void getOneItem_notFound() {
+
+    webTestClient
+        .get()
+        .uri(ITEM_FUNCTIONAL_END_POINT_V1.concat("/{id}"), "XDXD")
+        .exchange()
+        .expectStatus()
+        .isNotFound();
+  }
 }
