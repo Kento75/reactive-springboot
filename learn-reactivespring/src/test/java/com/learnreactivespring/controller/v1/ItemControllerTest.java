@@ -111,4 +111,35 @@ class ItemControllerTest {
                   });
             });
   }
+
+  @Test
+  @DisplayName("検索 - ID")
+  public void getOneItem() {
+
+    webTestClient
+        .get()
+        .uri(ITEM_END_POINT_V1.concat("/{id}"), "ABC")
+        .exchange()
+        .expectStatus()
+        .isOk()
+        .expectBody()
+        .jsonPath("$.id")
+        .isEqualTo("ABC")
+        .jsonPath("$.price")
+        .isEqualTo(19.99)
+        .jsonPath("$.description")
+        .isEqualTo("Beats HeadPhones");
+  }
+
+  @Test
+  @DisplayName("検索 - ID Not Found")
+  public void getOneItem_notFound() {
+
+    webTestClient
+        .get()
+        .uri(ITEM_END_POINT_V1.concat("/{id}"), "XDXD")
+        .exchange()
+        .expectStatus()
+        .isNotFound();
+  }
 }

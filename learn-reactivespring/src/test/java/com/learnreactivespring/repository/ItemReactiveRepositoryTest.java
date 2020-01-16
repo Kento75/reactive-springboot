@@ -21,25 +21,28 @@ import java.util.List;
 @ExtendWith(SpringExtension.class)
 class ItemReactiveRepositoryTest {
 
-  @Autowired
-  ItemReactiveRepository itemReactiveRepository;
+  @Autowired ItemReactiveRepository itemReactiveRepository;
 
   // テストデータ
-  List<Item> itemList = Arrays.asList(new Item(null, "Samsung TV", 400.0),
-      new Item(null, "LG TV", 420.0),
-      new Item(null, "Apple Watch", 299.99),
-      new Item(null, "Beats Headphones", 149.99),
-      new Item("ABC", "Bose Headphones", 149.99));
+  List<Item> itemList =
+      Arrays.asList(
+          new Item(null, "Samsung TV", 400.0),
+          new Item(null, "LG TV", 420.0),
+          new Item(null, "Apple Watch", 299.99),
+          new Item(null, "Beats Headphones", 149.99),
+          new Item("ABC", "Bose Headphones", 149.99));
 
   @BeforeEach
   public void setUp() {
 
-    itemReactiveRepository.deleteAll()
+    itemReactiveRepository
+        .deleteAll()
         .thenMany(Flux.fromIterable(itemList))
-        .flatMap(itemReactiveRepository::save)  // テストデータを登録
-        .doOnNext((item -> {
-          System.out.println("Inserted Item is : " + item);
-        }))
+        .flatMap(itemReactiveRepository::save) // テストデータを登録
+        .doOnNext(
+            (item -> {
+              System.out.println("Inserted Item is : " + item);
+            }))
         .blockLast();
   }
 
@@ -47,10 +50,10 @@ class ItemReactiveRepositoryTest {
   @DisplayName("全件取得")
   public void getAllItems() {
 
-    StepVerifier.create(itemReactiveRepository.findAll())  // 5 items
-      .expectSubscription()
-      .expectNextCount(5)
-      .verifyComplete();
+    StepVerifier.create(itemReactiveRepository.findAll()) // 5 items
+        .expectSubscription()
+        .expectNextCount(5)
+        .verifyComplete();
   }
 
   @Test
@@ -67,7 +70,10 @@ class ItemReactiveRepositoryTest {
   @DisplayName("詳細で検索")
   public void findItemByDescription() {
 
-    StepVerifier.create(itemReactiveRepository.findByDescription("Bose Headphones").log("findItemByDescription : "))
+    StepVerifier.create(
+            itemReactiveRepository
+                .findByDescription("Bose Headphones")
+                .log("findItemByDescription : "))
         .expectSubscription()
         .expectNextCount(1)
         .verifyComplete();
@@ -84,9 +90,9 @@ class ItemReactiveRepositoryTest {
 
     StepVerifier.create(saveItem.log("saveItem : "))
         .expectSubscription()
-        .expectNextMatches(item1 -> (item.getId() != null && item1.getDescription().equals("Google Home Mini")))
+        .expectNextMatches(
+            item1 -> (item.getId() != null && item1.getDescription().equals("Google Home Mini")))
         .verifyComplete();
-
   }
 
   @Test
@@ -96,12 +102,18 @@ class ItemReactiveRepositoryTest {
     // given
     double newPrice = 555.5;
 
-    Mono<Item> updatedItem = itemReactiveRepository.findByDescription("LG TV").map(item -> {
-      item.setPrice(newPrice);  // 値差し替え
-      return item;
-    }).flatMap(item -> {
-      return itemReactiveRepository.save(item); // 更新
-    });
+    Mono<Item> updatedItem =
+        itemReactiveRepository
+            .findByDescription("LG TV")
+            .map(
+                item -> {
+                  item.setPrice(newPrice); // 値差し替え
+                  return item;
+                })
+            .flatMap(
+                item -> {
+                  return itemReactiveRepository.save(item); // 更新
+                });
 
     StepVerifier.create(updatedItem.log("updateItem : "))
         .expectSubscription()
@@ -113,11 +125,11 @@ class ItemReactiveRepositoryTest {
   @DisplayName("アイテム削除 - idで削除")
   public void deleteItemById() {
 
-    Mono<Void> deleted = itemReactiveRepository.findById("ABC")
-        .map(Item::getId)
-        .flatMap((id) ->
-            itemReactiveRepository.deleteById(id)
-        );
+    Mono<Void> deleted =
+        itemReactiveRepository
+            .findById("ABC")
+            .map(Item::getId)
+            .flatMap((id) -> itemReactiveRepository.deleteById(id));
 
     StepVerifier.create(deleted.log("deleteItemById - deleted : "))
         .expectSubscription()
@@ -133,10 +145,10 @@ class ItemReactiveRepositoryTest {
   @DisplayName("アイテム削除")
   public void deleteItem() {
 
-    Mono<Void> deleted = itemReactiveRepository.findByDescription("LG TV")
-        .flatMap((item) ->
-            itemReactiveRepository.delete(item)
-        );
+    Mono<Void> deleted =
+        itemReactiveRepository
+            .findByDescription("LG TV")
+            .flatMap((item) -> itemReactiveRepository.delete(item));
 
     StepVerifier.create(deleted.log("deleteItem - deleted : "))
         .expectSubscription()
