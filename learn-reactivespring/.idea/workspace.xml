@@ -2,16 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7192f387-777a-43cb-a752-b35f002a625f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/jarAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/learnreactivespring/controller/v1/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/learnreactivespring/controller/v1/ItemController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/learnreactivespring/controller/v1/ItemControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/learnreactivespring/controller/v1/ItemControllerTest.java" afterDir="false" />
@@ -124,13 +114,13 @@
       <recent name="com.learnreactivespring.fluxandmonoplayground" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.ItemControllerTest.createItem">
-    <configuration name="ItemControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.ItemControllerTest.deleteItem">
+    <configuration name="ItemControllerTest.createItem" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.learnreactivespring.controller.v1.ItemControllerTest&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.learnreactivespring.controller.v1.ItemControllerTest.createItem&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -145,12 +135,12 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ItemControllerTest.createItem" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ItemControllerTest.deleteItem" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.learnreactivespring.controller.v1.ItemControllerTest.createItem&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.learnreactivespring.controller.v1.ItemControllerTest.deleteItem&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -227,11 +217,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.ItemControllerTest.deleteItem" />
         <item itemvalue="Gradle.ItemControllerTest.createItem" />
         <item itemvalue="Gradle.ItemControllerTest.getOneItem_notFound" />
         <item itemvalue="Gradle.ItemControllerTest.getOneItem" />
         <item itemvalue="Gradle.ItemControllerTest.xgetOneItem" />
-        <item itemvalue="Gradle.ItemControllerTest" />
       </list>
     </recent_temporary>
   </component>
