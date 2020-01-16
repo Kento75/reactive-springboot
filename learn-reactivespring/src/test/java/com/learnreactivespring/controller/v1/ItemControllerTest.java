@@ -15,6 +15,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
 import java.util.Arrays;
@@ -141,5 +142,29 @@ class ItemControllerTest {
         .exchange()
         .expectStatus()
         .isNotFound();
+  }
+
+  @Test
+  @DisplayName("登録")
+  public void createItem() {
+
+    // given
+    Item item = new Item(null, "Iphone Xs", 999.99);
+
+    webTestClient
+        .post()
+        .uri(ITEM_END_POINT_V1)
+        .contentType(MediaType.APPLICATION_JSON)
+        .body(Mono.just(item), Item.class)
+        .exchange()
+        .expectStatus()
+        .isCreated()
+        .expectBody()
+        .jsonPath("$.id")
+        .isNotEmpty()
+        .jsonPath("$.description")
+        .isEqualTo("Iphone Xs")
+        .jsonPath("$.price")
+        .isEqualTo(999.99);
   }
 }
