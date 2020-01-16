@@ -83,4 +83,15 @@ public class ItemClientController {
         .bodyToMono(Item.class)
         .log("Update Item is : ");
   }
+
+  @DeleteMapping("/client/deleteItem/{id}")
+  public Mono<Void> deleteItem(@PathVariable("id") String itemId) {
+
+    return webClient
+        .delete()
+        .uri("/v1/items/{id}", itemId)
+        .retrieve()
+        .bodyToMono(Void.class)
+        .log("Deleted Item is : ");
+  }
 }
