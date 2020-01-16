@@ -2,8 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7192f387-777a-43cb-a752-b35f002a625f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/learnreactivespring/controller/v1/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/learnreactivespring/controller/v1/ItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/learnreactivespring/controller/FluxAndMonoControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/learnreactivespring/controller/FluxAndMonoControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/learnreactivespring/controller/v1/ItemControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/learnreactivespring/controller/v1/ItemControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -114,13 +125,13 @@
       <recent name="com.learnreactivespring.fluxandmonoplayground" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.ItemControllerTest.deleteItem">
-    <configuration name="ItemControllerTest.createItem" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.learn-reactivespring [build]">
+    <configuration name="FluxAndMonoControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.learnreactivespring.controller.v1.ItemControllerTest.createItem&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.learnreactivespring.controller.FluxAndMonoControllerTest&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -135,12 +146,12 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ItemControllerTest.deleteItem" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ItemControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.learnreactivespring.controller.v1.ItemControllerTest.deleteItem&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.learnreactivespring.controller.v1.ItemControllerTest&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -155,12 +166,12 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ItemControllerTest.getOneItem" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ItemControllerTest.updateItem_notFound" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.learnreactivespring.controller.v1.ItemControllerTest.getOneItem&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.learnreactivespring.controller.v1.ItemControllerTest.updateItem_notFound&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -175,12 +186,12 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ItemControllerTest.getOneItem_notFound" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ItemControllerTest.updateItemm" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.learnreactivespring.controller.v1.ItemControllerTest.getOneItem_notFound&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.learnreactivespring.controller.v1.ItemControllerTest.updateItemm&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -195,33 +206,32 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ItemControllerTest.xgetOneItem" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="learn-reactivespring [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.learnreactivespring.controller.v1.ItemControllerTest.xgetOneItem&quot;" />
+        <option name="scriptParameters" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value=":cleanTest" />
-            <option value=":test" />
+            <option value="build" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.ItemControllerTest.deleteItem" />
-        <item itemvalue="Gradle.ItemControllerTest.createItem" />
-        <item itemvalue="Gradle.ItemControllerTest.getOneItem_notFound" />
-        <item itemvalue="Gradle.ItemControllerTest.getOneItem" />
-        <item itemvalue="Gradle.ItemControllerTest.xgetOneItem" />
+        <item itemvalue="Gradle.FluxAndMonoControllerTest" />
+        <item itemvalue="Gradle.learn-reactivespring [build]" />
+        <item itemvalue="Gradle.ItemControllerTest" />
+        <item itemvalue="Gradle.ItemControllerTest.updateItem_notFound" />
+        <item itemvalue="Gradle.ItemControllerTest.updateItemm" />
       </list>
     </recent_temporary>
   </component>
@@ -465,7 +475,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579134466397</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Added deleteById routes and test case.">
+      <created>1579136825974</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1579136825974</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -482,7 +499,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added Mono and Flux flatMap Test Case" />
     <MESSAGE value="Added Mono and Flux Combine Test Case" />
     <MESSAGE value="Added Mono and Flux Error Handling Test Case" />
     <MESSAGE value="Added Mono and Flux With Time Test Case" />
@@ -507,42 +523,43 @@
     <MESSAGE value="Added get all test case for ItemControllerTest" />
     <MESSAGE value="Added getAllItems test case ." />
     <MESSAGE value="Added getItemById routes and test case." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added getItemById routes and test case." />
+    <MESSAGE value="Added deleteById routes and test case." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added deleteById routes and test case." />
   </component>
   <component name="WindowStateProjectService">
     <state x="771" y="272" key="#com.intellij.ide.util.MemberChooser" timestamp="1579054555623">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state x="771" y="272" key="#com.intellij.ide.util.MemberChooser/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1579054555623" />
-    <state x="720" y="170" key="CommitChangelistDialog2" timestamp="1579134465651">
+    <state x="720" y="170" key="CommitChangelistDialog2" timestamp="1579138193553">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state x="452" y="140" key="CommitChangelistDialog2/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1578787820542" />
-    <state x="720" y="170" key="CommitChangelistDialog2/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1579134465651" />
+    <state x="720" y="170" key="CommitChangelistDialog2/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1579138193553" />
     <state x="100" y="100" width="1720" height="880" key="DiffContextDialog" timestamp="1578736154179">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="100" y="100" width="1720" height="880" key="DiffContextDialog/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1578736154179" />
-    <state width="1863" height="187" key="GridCell.Tab.0.bottom" timestamp="1579135658462">
+    <state width="1863" height="187" key="GridCell.Tab.0.bottom" timestamp="1579138125249">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state width="1876" height="376" key="GridCell.Tab.0.bottom/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1578787531592" />
-    <state width="1863" height="187" key="GridCell.Tab.0.bottom/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1579135658462" />
-    <state width="1863" height="187" key="GridCell.Tab.0.center" timestamp="1579135658461">
+    <state width="1863" height="187" key="GridCell.Tab.0.bottom/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1579138125249" />
+    <state width="1863" height="187" key="GridCell.Tab.0.center" timestamp="1579138125249">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state width="1876" height="376" key="GridCell.Tab.0.center/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1578787531590" />
-    <state width="1863" height="187" key="GridCell.Tab.0.center/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1579135658461" />
-    <state width="1863" height="187" key="GridCell.Tab.0.left" timestamp="1579135658460">
+    <state width="1863" height="187" key="GridCell.Tab.0.center/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1579138125249" />
+    <state width="1863" height="187" key="GridCell.Tab.0.left" timestamp="1579138125248">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state width="1876" height="376" key="GridCell.Tab.0.left/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1578787531589" />
-    <state width="1863" height="187" key="GridCell.Tab.0.left/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1579135658460" />
-    <state width="1863" height="187" key="GridCell.Tab.0.right" timestamp="1579135658461">
+    <state width="1863" height="187" key="GridCell.Tab.0.left/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1579138125248" />
+    <state width="1863" height="187" key="GridCell.Tab.0.right" timestamp="1579138125249">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state width="1876" height="376" key="GridCell.Tab.0.right/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1578787531591" />
-    <state width="1863" height="187" key="GridCell.Tab.0.right/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1579135658461" />
+    <state width="1863" height="187" key="GridCell.Tab.0.right/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1579138125249" />
     <state width="1863" height="356" key="GridCell.Tab.1.bottom" timestamp="1579043967421">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
@@ -567,11 +584,11 @@
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state width="500" height="456" key="SwitcherDM/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1578825637121" />
-    <state x="560" y="297" key="Vcs.Push.Dialog.v2" timestamp="1579134467985">
+    <state x="560" y="297" key="Vcs.Push.Dialog.v2" timestamp="1579136828235">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state x="560" y="280" key="Vcs.Push.Dialog.v2/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1578787822538" />
-    <state x="560" y="297" key="Vcs.Push.Dialog.v2/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1579134467985" />
+    <state x="560" y="297" key="Vcs.Push.Dialog.v2/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1579136828235" />
     <state x="716" y="306" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1579084323309">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
@@ -582,9 +599,9 @@
     </state>
     <state x="625" y="255" key="run.anything.popup/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1578735917555" />
     <state x="625" y="273" key="run.anything.popup/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1579052283514" />
-    <state x="623" y="257" width="670" height="676" key="search.everywhere.popup" timestamp="1579135395815">
+    <state x="623" y="257" width="670" height="676" key="search.everywhere.popup" timestamp="1579137989138">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
-    <state x="623" y="257" width="670" height="676" key="search.everywhere.popup/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1579135395815" />
+    <state x="623" y="257" width="670" height="676" key="search.everywhere.popup/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1579137989138" />
   </component>
 </project>

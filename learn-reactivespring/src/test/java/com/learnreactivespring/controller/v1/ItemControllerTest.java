@@ -181,4 +181,47 @@ class ItemControllerTest {
         .isOk()
         .expectBody(Void.class);
   }
+
+  @Test
+  @DisplayName("更新")
+  public void updateItem() {
+
+    // given
+    Item item = new Item(null, "Test test test", 10000.0);
+
+    webTestClient
+        .put()
+        .uri(ITEM_END_POINT_V1.concat("/{id}"), "ABC")
+        .contentType(MediaType.APPLICATION_JSON)
+        .accept(MediaType.APPLICATION_JSON)
+        .body(Mono.just(item), Item.class)
+        .exchange()
+        .expectStatus()
+        .isOk()
+        .expectBody()
+        .jsonPath("$.id")
+        .isEqualTo("ABC")
+        .jsonPath("$.price")
+        .isEqualTo(10000.0)
+        .jsonPath("$.description")
+        .isEqualTo("Test test test");
+  }
+
+  @Test
+  @DisplayName("更新 - Not Found")
+  public void updateItem_notFound() {
+
+    // given
+    Item item = new Item(null, "Test test test", 10000.0);
+
+    webTestClient
+        .put()
+        .uri(ITEM_END_POINT_V1.concat("/{id}"), "XXXXXXX")
+        .contentType(MediaType.APPLICATION_JSON)
+        .accept(MediaType.APPLICATION_JSON)
+        .body(Mono.just(item), Item.class)
+        .exchange()
+        .expectStatus()
+        .isNotFound();
+  }
 }
