@@ -15,6 +15,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import java.util.Arrays;
 import java.util.List;
@@ -103,6 +104,30 @@ class ItemsHandlerTest {
   }
 
   @Test
+  @DisplayName("作成 - func route")
+  public void createItem() {
+
+    Item item = new Item(null, "Test create item", 222.22);
+
+    webTestClient
+        .post()
+        .uri(ITEM_FUNCTIONAL_END_POINT_V1)
+        .accept(MediaType.APPLICATION_JSON)
+        .contentType(MediaType.APPLICATION_JSON)
+        .body(Mono.just(item), Item.class)
+        .exchange()
+        .expectStatus()
+        .isOk()
+        .expectBody()
+        .jsonPath("$.id")
+        .isNotEmpty()
+        .jsonPath("$.description")
+        .isEqualTo("Test create item")
+        .jsonPath("$.price")
+        .isEqualTo(222.22);
+  }
+
+  @Test
   @DisplayName("削除 - func route")
   public void deleteItem() {
 
@@ -112,5 +137,48 @@ class ItemsHandlerTest {
         .exchange()
         .expectStatus()
         .isOk();
+  }
+
+  @Test
+  @DisplayName("更新 - func route")
+  public void updateItem() {
+
+    // given
+    Item item = new Item(null, "TESTESTETS", 123.456);
+
+    webTestClient
+        .put()
+        .uri(ITEM_FUNCTIONAL_END_POINT_V1.concat("/{id}"), "ABC")
+        .accept(MediaType.APPLICATION_JSON)
+        .contentType(MediaType.APPLICATION_JSON)
+        .body(Mono.just(item), Item.class)
+        .exchange()
+        .expectStatus()
+        .isOk()
+        .expectBody()
+        .jsonPath("$.price")
+        .isEqualTo(123.456)
+        .jsonPath("$.description")
+        .isEqualTo("TESTESTETS")
+        .jsonPath("$.id")
+        .isEqualTo("ABC");
+  }
+
+  @Test
+  @DisplayName("更新 - func route - Not Found")
+  public void updateItem_notFound() {
+
+    // given
+    Item item = new Item(null, "TESTESTETS", 123.456);
+
+    webTestClient
+        .put()
+        .uri(ITEM_FUNCTIONAL_END_POINT_V1.concat("/{id}"), "AWSWSWSWS")
+        .accept(MediaType.APPLICATION_JSON)
+        .contentType(MediaType.APPLICATION_JSON)
+        .body(Mono.just(item), Item.class)
+        .exchange()
+        .expectStatus()
+        .isNotFound();
   }
 }
