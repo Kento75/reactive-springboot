@@ -1,6 +1,8 @@
 package con.learnreactivespring.controller;
 
 import con.learnreactivespring.domain.Item;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -8,6 +10,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
+@Slf4j
 public class ItemClientController {
 
   WebClient webClient = WebClient.create("http://localhost:8080");
@@ -93,5 +96,28 @@ public class ItemClientController {
         .retrieve()
         .bodyToMono(Void.class)
         .log("Deleted Item is : ");
+  }
+
+  // エラーハンドリングテスト
+  @GetMapping("/client/retrieve/error")
+  public Flux<Item> errorRetrieve() {
+
+    return webClient
+        .get()
+        .uri("/v1/items/runtimeException")
+        .retrieve()
+        .onStatus(
+            // status code is 500
+            HttpStatus::is5xxServerError,
+            clientResponse -> {
+              Mono<String> errorMono = clientResponse.bodyToMono(String.class);
+              return errorMono.flatMap(
+                  (errorMessage) -> {
+                    log.error("The error Message is : " + errorMessage);
+
+                    throw new RuntimeException(errorMessage);
+                  });
+            })
+        .bodyToFlux(Item.class);
   }
 }
